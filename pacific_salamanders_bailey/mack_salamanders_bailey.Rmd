@@ -1,9 +1,12 @@
 ---
-title: "Pacific Giant Salamanders"
-author: "Allison Bailey"
+title: "Pacific Giant Salamanders in Mack Creek"
+subtitle: "Size & Location Analysis"
+author: "Allison Bailey & Becca Reynolds"
 date: "11/20/2019"
 output: html_document
 ---
+
+<br>
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -22,14 +25,52 @@ library(DT)
 library(plotly)
 library(expss)
 library(kableExtra)
-library(gmodels)
-library(PairedData)
 library(car)
 library(ggbeeswarm)
+library(knitr)
 
 ```
 
 #### **Introduction**
+
+<br>
+
+Pacific Giant Salamanders (*Dicamptodon tenebrosus*) are a species of amphibian found in western North America. Their range expands southward from southern British Columbia through western Washington and western Oregon, and includes northwest California. [3] Pacific Giant Salamanders are semi-aquatic, occupying cold, freshwater streams and adjacent forest. Population stability is significantly impacted by the quality and quantity of available freshwater. [2] As of August 2015, the IUCN Red List has classified Pacific Giant Salamanders as a species of Least Concern. [3] However this species, like most amphibians, is considered an indicator species. [2] Fluctuations in Pacific Giant Salamander population may indicate the early signs of habitat degradation. [2] Logging, among other human activities, can negatively impact Pacific Giant Salamander populations. [2]
+
+<br>
+
+Pacific Giant Salamander population size and demographics have been examined in Mack Creek, Oregon since 1993, as part of a larger aquatic vertebrate population study. Mack Creek is an area within H.J. Andrews Experimental Forest. [1] Areas of focus (reaches) include a section of clear cut forest (CC) and a 500 year-old conifer old growth forest (OG), located upstream of the CC forest. [1] Each reach is approximately 150 m in length, and blocked every 50 m by nets. [1] Samples are taken every 50 m along each reach using 2-pass electrofishing. Length and weight data is recorded for all captured aquatic vertebrates. [1]
+
+<br>
+
+
+```{r, echo=FALSE, warning=FALSE, out.width = "100%", fig.cap="***Figure 1.*** Pacific Giant Salamander (*Dicamptodon tenebrosus*) [left] and spatial coverage of the two standard reaches of Mack Creek in the H.J. Andrews Experimental Forest used as survey sites since 1993 [right]. Credit [Oregon Wild](https://oregonwild.org/wildlife/pacific-giant-salamander) and [EDI Data Portal](https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-and&identifier=4027&revision=12)."}
+#Insert salamander and map image with caption
+include_graphics("sal_map.png")
+
+```
+
+<br>
+ 
+#### **Data & Methods**
+
+Write data and methods here...
+
+DATA AND METHODS: A brief ‘Data and Methods’ section (5 - 6 sentences) summarizing the data and how it was analyzed. Briefly describe the variables being studied in this report. Include the types of statistical tests performed, significance level used, and software (with version) for analysis. Include a map of the area. You can use an already published map of the area, making sure to give appropriate credit to the author / creator) in the map figure caption. 
+
+<br>
+
+```{r, echo=FALSE, warning=FALSE, out.width = "100%", fig.cap="***Figure 2.*** Mack Creek is located in the H.J. Andrews Experimental Forest, a Long-Term Ecological Research Site. Credit [GoogleMaps](https://www.google.com/maps/place/Mack+Creek/@44.2331797,-122.1849309,15z/data=!4m5!3m4!1s0x54bf5f54d8de4e19:0xae27a36b0c69a1b8!8m2!3d44.2111833!4d-122.1527863)."}
+#Insert salamander and map image with caption
+include_graphics("mc_map.png")
+```
+
+
+<br>
+
+#### **Results**
+
+<br>
 
 
 ```{r, include=FALSE}
@@ -243,7 +284,7 @@ There is a *not* a significant assocation between old growth and clear cut secti
 **Alternative hypothesis**: There IS a significant difference in weight mean between old growth and clear cut (or, old growth and clear cut are significantly differenct)
 
 
-```{r, include=FALSE}
+```{r, include=FALSE, warning=FALSE}
 # Results D. Compare weights of Pacific giant salamanders in clear cut and old growth forest sections of the creek in 2017. Only considering creek section (OG or CC) as a variable (not further factoring by channel classification), answer: Is there a significant difference in mean weights for Pacific giant salamanders observed in the two forest sections (clear cut and old growth) in 2017? 
 
 sal_stats <- mack_date %>% 
@@ -299,7 +340,7 @@ section_ttest
 # A resulting p-value under 0.05 means that variances are not equal and than further parametric tests such as ANOVA are not suited. We should use chi-squared.
 ```
 
-```{r}
+```{r, include=FALSE, warning=FALSE}
 # Run a density plot to visualize if there's a significant difference in means. 
 
 section_density <- sec_welch
@@ -508,3 +549,26 @@ ggplot(data = mack_date, aes(sample = weight)) +
 ```
 
 The weight is not normally distributed therefore, utilizing the mean in our report may have skewed our data.  Comparing Medians and running non-parametric Wilcox Test and visualizing the data through a boxplot would've been a safer statistical analysis. 
+
+
+
+<br>
+
+#### **Summary**
+
+A brief summary of the major findings (pick 3 - 4) from your mini-report. A bullet-pointed list is fine, but the findings should be well-written, responsible (don’t overstate your findings), and refer to outcomes (e.g. figures, tables) in the Results section
+
+
+Put bullet point list here...
+
+<br>
+
+#### **References**
+
+[1]Andrews Forest LTER Site and S. V. Gregory, “Aquatic Vertebrate Population Study in Mack Creek, Andrews Experimental Forest, 1987 to present.” Environmental Data Initiative, 2016.
+
+[2]“Pacific Giant Salamander | Oregon Wild.” [Online]. Available: https://oregonwild.org/wildlife/pacific-giant-salamander. [Accessed: 30-Nov-2019].
+
+[3]“The IUCN Red List of Threatened Species,” IUCN Red List of Threatened Species. [Online]. Available: https://www.iucnredlist.org/en. [Accessed: 01-Dec-2019].
+
+
