@@ -35,14 +35,9 @@ library(knitr)
 
 <br>
 
-Pacific Giant Salamanders (*Dicamptodon tenebrosus*) are a species of amphibian found in western North America. Their range expands southward from southern British Columbia through western Washington and western Oregon, and includes northwest California. [3] Pacific Giant Salamanders are semi-aquatic, occupying cold, freshwater streams and adjacent forest. Population stability is significantly impacted by the quality and quantity of available freshwater. [2] As of August 2015, the IUCN Red List has classified Pacific Giant Salamanders as a species of Least Concern. [3] However this species, like most amphibians, is considered an indicator species. [2] Fluctuations in Pacific Giant Salamander population may indicate the early signs of habitat degradation. [2] Logging, among other human activities, can negatively impact Pacific Giant Salamander populations. [2]
+Pacific Giant Salamanders (*Dicamptodon tenebrosus*) are a species of amphibian found in western North America. Their range expands southward from southern British Columbia through western Washington and western Oregon, and includes northwest California. [3] Pacific Giant Salamanders are semi-aquatic, occupying cold, freshwater streams and adjacent forest. Population stability is significantly impacted by the quality and quantity of available freshwater. [2] As of August 2015, the IUCN Red List has classified Pacific Giant Salamanders as a species of Least Concern. [3] However this species, like most amphibians, is considered an indicator species. [2] Fluctuations in Pacific Giant Salamander population may indicate the early signs of habitat degradation. [2] Logging, among other human activities, can negatively impact Pacific Giant Salamander populations. [2] This report analyzes data collected over the course of 23 years (1993-2016) as part of the Aquatic Vertebrate Population Study in Mack Creek Andrews Experimental Forest LTER Site, published by Stanley V. Gregory in 2016. [1] This data was used to quantify and compare Pacific Giant Salamander relative abundance across study sites, and to explore relationships between Pacific Giant Salamander weight and study site location. 
 
 <br>
-
-Pacific Giant Salamander population size and demographics have been examined in Mack Creek, Oregon since 1993, as part of a larger aquatic vertebrate population study. Mack Creek is an area within H.J. Andrews Experimental Forest. [1] Areas of focus (reaches) include a section of clear cut forest (CC) and a 500 year-old conifer old growth forest (OG), located upstream of the CC forest. [1] Each reach is approximately 150 m in length, and blocked every 50 m by nets. [1] Samples are taken every 50 m along each reach using 2-pass electrofishing. Length and weight data is recorded for all captured aquatic vertebrates. [1]
-
-<br>
-
 
 ```{r, echo=FALSE, warning=FALSE, out.width = "100%", fig.cap="***Figure 1.*** Pacific Giant Salamander (*Dicamptodon tenebrosus*) [left] and spatial coverage of the two standard reaches of Mack Creek in the H.J. Andrews Experimental Forest used as survey sites since 1993 [right]. Credit [Oregon Wild](https://oregonwild.org/wildlife/pacific-giant-salamander) and [EDI Data Portal](https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-and&identifier=4027&revision=12)."}
 #Insert salamander and map image with caption
@@ -53,6 +48,12 @@ include_graphics("sal_map.png")
 <br>
  
 #### **Data & Methods**
+
+<br>
+
+Pacific Giant Salamander population size and demographics have been examined in Mack Creek, Oregon since 1993, as part of a larger [aquatic vertebrate population study](https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-and&identifier=4027&revision=12). Mack Creek is an area within H.J. Andrews Experimental Forest. [1] Areas of focus (reaches) include a section of clear cut forest (CC) and a 500 year-old conifer old growth forest (OG), located upstream of the CC forest. [1] Each reach is approximately 150 m in length, and blocked every 50 m by nets. [1] Samples are taken every 50 m along each reach using 2-pass electrofishing. Length and weight data is recorded for all captured aquatic vertebrates. [1] The total number of Pacific Giant Salamanders counted at Mack Creek was visualized, comparing abundance in CC forest to that in OG forest. The total number of Pacific Giant Salamanders counted at Mack Creek was visualized, comparing abundance in CC forest to that in OG forest. Included is a table displaying Pacific Giant Salamander counts by channel classification for both OG and CC forests in the year 2017. Based on these values, a Chi-Square test for independence was used to determine if forest condition has a significant effect on the location within the channel at which Pacific Giant Salamanders are found. Additionally, to determine if there is a significant difference in mean weights between the two forest sections, mean Pacific Giant Salamander weights were compared across forest sections using a Welch’s two-sample t-test ( = 0.05). Box-and-whisker plots and quantile-quantile plots were then used to visualize mean weight distributions across each forest section, and revealed an abnormal distribution. This report presents analysis and figures exclusively prepared using .R software version 3.6.1. 
+
+<br>
 
 Write data and methods here...
 
