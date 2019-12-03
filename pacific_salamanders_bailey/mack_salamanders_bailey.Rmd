@@ -35,7 +35,7 @@ library(knitr)
 
 <br>
 
-Pacific Giant Salamanders (*Dicamptodon tenebrosus*) are a species of amphibian found in western North America. Their range expands southward from southern British Columbia through western Washington and western Oregon, and includes northwest California. [3] Pacific Giant Salamanders are semi-aquatic, occupying cold, freshwater streams and adjacent forest. Population stability is significantly impacted by the quality and quantity of available freshwater. [2] As of August 2015, the IUCN Red List has classified Pacific Giant Salamanders as a species of Least Concern. [3] However this species, like most amphibians, is considered an indicator species. [2] Fluctuations in Pacific Giant Salamander population may indicate the early signs of habitat degradation. [2] Logging, among other human activities, can negatively impact Pacific Giant Salamander populations. [2] This report analyzes data collected over the course of 23 years (1993-2016) as part of the Aquatic Vertebrate Population Study in Mack Creek Andrews Experimental Forest LTER Site, published by Stanley V. Gregory in 2016. [1] This data was used to quantify and compare Pacific Giant Salamander relative abundance across study sites, and to explore relationships between Pacific Giant Salamander weight and study site location. 
+Pacific Giant Salamanders (*Dicamptodon tenebrosus*) are a species of amphibian found in western North America. Their range expands southward from southern British Columbia through western Washington and western Oregon, and includes northwest California. [3] Pacific Giant Salamanders are semi-aquatic, occupying cold, freshwater streams and adjacent forest. Population stability is significantly impacted by the quality and quantity of available freshwater. [2] As of August 2015, the IUCN Red List has classified Pacific Giant Salamanders as a species of Least Concern. [3] However this species, like most amphibians, is considered an indicator species. [2] Fluctuations in Pacific Giant Salamander populations may indicate the early signs of habitat degradation. [2] Logging, among other human activities, can negatively impact Pacific Giant Salamander populations. [2] This report analyzes data collected over the course of 23 years (1993-2016) as part of the Aquatic Vertebrate Population Study in Mack Creek Andrews Experimental Forest LTER Site, published by Stanley V. Gregory in 2016. [1] This data was used to quantify and compare Pacific Giant Salamander relative abundance across study sites, and to explore relationships between Pacific Giant Salamander weight and study site location. 
 
 <br>
 
@@ -148,10 +148,10 @@ mack_date <- mack_clean %>%
 # - If the difference in means is very unlikely to occur by random chance if samples are drawn from identical populations, then we may decide that they ARE significantly different 
 
 ```
-**A.** Annual counts of Pacific Giant Salamander were visually compared in OG and CC sections of Mack Creek (1993-2016). Visualizations display the changes in annual counts for each section of Mack Creek over time. From 1993 to approximately 2014, Pacific Giant Salamander counts in OG forest sections of Mack Creek generally exceed counts obtained in CC forest sections. From 2014 to 2016, this trend is reversed. General population growth and decay patterns are similar between both sites displaying an overall increase in population from 1995 to approximately 2002, followed by an overall decline until 2006, a more drastic decline around 2014, and growth from 2014 to 2016. 
+**A.** Annual counts of Pacific Giant Salamander were visually compared in OG and CC sections of Mack Creek (1993-2016). Visualizations display the changes in annual counts for each section of Mack Creek over time. From 1993 to approximately 2014, Pacific Giant Salamander counts in OG forest sections of Mack Creek generally exceed counts obtained in CC forest sections. From 2014 to 2016, this trend is reversed. General population growth and decay patterns are similar between both sites, displaying an overall increase in population from 1995 to approximately 2002. This is followed by an overall decline until 2006, a more drastic decline around 2014, and growth from 2014 to 2016. 
 
 
-```{r echo=FALSE, include=TRUE, warning=FALSE, out.width = "100%", fig.cap="***Figure 3.** Comparison of annual Pacific Giant Salamander counts in Old Growth and Clear Cut sections of Mack Creek (1993-2016). *"}
+```{r echo=FALSE, include=TRUE, warning=FALSE, out.width = "100%", fig.cap="***Figure 3.** Comparison of annual Pacific Giant Salamander counts in OG and CC sections of Mack Creek (1993-2016).*"}
 # Results A: Visually compare annual salamander counts in old growth (OG) and clear cut (CC) sections of Mack Creek. For all years when Pacific giant salamander observations were recorded in the study, find the total annual Pacific giant salamander counts for the two sections of Mack Creek. Create a finalized graph to show the changes in annual counts for each section over time, add a figure caption, and briefly describe the trends in text. 
 
 sal_abundance <- mack_date %>%
@@ -174,8 +174,8 @@ sal_total_plot <- ggplot(sal_total, aes(x=year, y=total)) +
     ) +
     ggtitle("Total Salamanders Counted at Mack Creek") +
    scale_color_viridis(discrete=TRUE, option="cividis") +
-  labs(x = "Year",
-       y = "Salamander Count")
+  labs(x = "year",
+       y = "salamander count")
 
 sal_total_plot
 ```
@@ -239,7 +239,7 @@ sal_adorn <- sal_count_table %>%
   adorn_pct_formatting(digits = 0) %>% 
   adorn_ns(position = "front")
 
-kable(sal_adorn, caption = "***Figure 4.** The table below displays Pacific Giant Salamander counts and proportions by channel classification [pool (P), cascades (C), or side-channel (SC)] Table of 2017 salamander counts by channel classification () in old growth (OG) and clear cut (CC) sections of Mack Creek. Using only Pacific giant salamander observations from 2017, create a finalized table showing the counts and proportions of salamanders observed in different channel classifications (pool, cascade, or side-channel) within Mack Creek for the two sections (OG and CC).*") %>% 
+kable(sal_adorn, caption = "***Figure 4.** The table below displays Pacific Giant Salamander counts and proportions by channel classification [pool (P), cascades (C), or side-channel (SC)] in 2017.*") %>% 
   kable_styling()
 
 ```
@@ -310,7 +310,7 @@ kable(sal_stats, col.names = c("Section",
                            "SE Weight",
                            "Var Weight"),
         caption = 
-            "Figure 5. The table below includes the means, standard deviations, and sample weights for Clear Cut and Old Growth sections in 2017.") %>% 
+            "Figure 5. The table below includes the means, standard deviations, and sample weights of Pacific Giant Salamanders foung in CC or OG forest sections in 2017.") %>% 
   kable_styling(bootstrap_options = c("striped", "hover"))
 
 
@@ -364,11 +364,12 @@ sec_affil +
 
 ```
 
+<br>
 
-“Weight of Salamanders located in Clear Cut seciton (7.77587 ± 9.9 g [mean ± sd],  n = 368) and Old Growth section (6.701818 ± 9.035g [mean ± sd], n = 320) are *not* significantly different (t(683.21) = 1.4859, p = 0.1378).”
+**D.** A Welch two-sample t-test was used to determine if there is a significant difference in Pacific Giant Salamander mean weights between individuals found in CC or OG forest sections in 2017. Analysis shows that there is *no* significant difference in mean weight of Pacific Giant Salamanders (t(683.21) = 1.4859, p = 0.1378) located in CC forests (7.77587 ± 9.9 g [mean ± sd],  n = 368) and OG forests (6.701818 ± 9.035g [mean ± sd], n = 320).
 
 
-```{r echo=FALSE, include=TRUE, warning=FALSE, fig.cap="***Figure 3.** Graph visualizes the relativity of observed weights in relation to the mean in salamander weights in old growth and clear cut sections"}
+```{r echo=FALSE, include=TRUE, warning=FALSE, out.width = "100%", fig.cap="***Figure 5.** Observed Pacific Giant Salamander weights in relation to mean Pacific Giant Salamander weights in OG and CC forests sections.*"}
 # Results C continued.
 
 sal_weight <- mack_date %>%
@@ -378,12 +379,12 @@ sal_weight <- mack_date %>%
 sal_weight_plot <- ggplot() +
   geom_beeswarm(data = sal_weight, 
                 aes(x = section, 
-                    y = weight,
-                    ),
+                    y = weight),
                 size = 3,
                 alpha = 0.6,
                 pch = 16,
                 color = "gray70") +
+  labs(title = "Mean Weights of Pacific Giant Salamanders (CC & OG Forests)") +
   scale_x_discrete(labels = c("Clear Cut", "Old Growth")) +
   geom_point(data = sal_stats, aes(x = section, y = mean_weight), 
              color = "firebrick",
@@ -401,10 +402,11 @@ sal_weight_plot
 ```
 
 <b/r>
-In the graphic above Clear Cut and Old Growth salamander weights are reported. The bar heights represent their mean value. The red error bar gives information on how the individual observations are dispersed around the average. It appears that measurements in Old Growth section are slightly more precise than in Clear Cut.  
+
+The graph above visualizes Pacific Giant Salamander weights for individuals found in CC and OG forests. The bar heights represent mean Salamander weight for each section. The red error bar indicates how individual observations are dispersed around the mean. It appears that measurements from the OG forest section are slightly more precise than those from the CC forest section.  
 
 
-```{r echo=FALSE, include=TRUE, warning=FALSE, fig.cap="***Figure 3.** Graph visualizes the skewed distribution in salamander weights in old growth and clear cut sections"}
+```{r echo=FALSE, include=TRUE, warning=FALSE, out.width = "100%", fig.cap="***Figure 6.** This QQ-Plot visualizes the skewed distribution in Pacific Giant Salamander weights in both OG and CC forest sections.*"}
 # We need to see if the weight in Salamanders is normally distrubted between the two sections. To do this. We will use a qq plot.
 
 ggplot(data = mack_date, aes(sample = weight)) +
@@ -412,15 +414,16 @@ ggplot(data = mack_date, aes(sample = weight)) +
                  alpha = 0.5,
                  show.legend = FALSE
           ) +
+  labs(title = "Distribution of Pacific Giant Salamander Weights (OG and CC forests)") +
   facet_wrap(~section, scales = "free") +
   scale_color_viridis(discrete = TRUE, option = "cividis")
 
 # Based on the results of our qq plot, the data is NOT normally distributed.
 ```
 
-Based on the results of our qq plot, the data is NOT normally distributed in either section. The weight is not normally distributed therefore, utilizing the mean in our report may have skewed our data.  Comparing Medians and running non-parametric Wilcox Test and visualizing the data through a boxplot would've been a safer statistical analysis. 
+A Quantile-quantile plot was created to determine if Pacific Giant Salamander weight data is normally distributed. Based on the results of this plot, it is evident that the Salamander weight data is *not* normally distributed in either forest section. Therefore, analyzing this data based on mean values likely produced inaccurate outcomes.  To avoid errors due to skewed data, statistical analyses should have focused on median Salamander weights. Using a non-parametric Wilcox Test and visualizing the data through a boxplot would have produced more accurate outcomes. 
 
-```{r echo=FALSE, include=TRUE, warning=FALSE, fig.cap="***Figure 8.** Table shows median weights for each channel"}
+```{r echo=FALSE, include=TRUE, warning=FALSE}
 weight_channel <- mack_date %>%
   dplyr::select(unittype, weight, year) %>%
   filter(year == 2017) %>%
@@ -437,13 +440,16 @@ weight_summary <- weight_channel %>%
     var_weight = var(weight, na.rm = TRUE)
   )
 
-kable(weight_summary) %>% 
+kable(weight_summary, caption = "***Figure 7.** The table below displays the median Pacific Giant Salamander Weights for each channel (P, C, and SC).*") %>% 
   kable_styling()
 
 ```
 
 
-```{r, echo=FALSE, include=TRUE, warning=FALSE, fig.cap="***Figure 9.** Plot visualizes the mean salamander weights in the different channels"}
+```{r, echo=FALSE, include=TRUE, warning=FALSE, out.width = "100%", fig.cap="***Figure 8.** The beeswarm plot above visualizes the mean Pacific Giant Salamander weights in each of the different channels (P, C, and SC).*"}
+
+#First, visually compare Pacific giant salamander weights between the three channel classifications. You can choose how to best visualize the weights between the three groups (Beeswarm? Jitter? Histogram? Density? Something else?), but you should indicate values for the mean, and standard deviation, standard error or a 95% confidence interval. Add a figure caption. 
+
 channel_weight_plot <- ggplot() +
   geom_beeswarm(data = weight_channel, 
                 aes(x = unittype, 
@@ -463,6 +469,7 @@ channel_weight_plot <- ggplot() +
                     ymax = mean_weight + sd_weight),
                 color = "firebrick",
                 width = 0.1) +
+  labs(title = "Mean Pacific Giant Salamander Weights (P, C, and SC Channels)") +
   theme_light()
 
 channel_weight_plot
@@ -472,8 +479,10 @@ channel_weight_plot
 ```{r, echo=FALSE, include=FALSE}
 channel_aov <- aov(weight ~ unittype, data = weight_channel)
 summary(channel_aov)
+
+#We retain the alternative hypothesis (mean weights for the 3 channels are NOT the same). But are they all different from each other? Or just two? 
 ```
-We retain the alternative hypothesis (mean weights for the 3 channels are NOT the same). But are they all different from each other? Or just two? 
+
 
 ```{r, echo=FALSE, include=FALSE}
 # comparing to Type III ANOVA
@@ -532,10 +541,10 @@ channel_cohen
 summary(channel_cohen)
 ```
 
-Conclusion: Mean weights did *not* differ significantly between Pool (9.29 +/- 1.56) and Cascades (7.52 +/- 0.43) nor the Cascades and Side Channel (5.68 +/- 0.65).  However, there is a significant difference between Side Channel and Pool (one-way ANOVA with post-hoc Tukey's HSD, F(2) = 4.2156, SC-P *p adj* < 0.05). However, after running the difference against a Cohen's d test and receiving a value of approximately 0.352 it can be concluded that the difference between Pool and Side channels is small.
+**E.** Mean Pacific Giant Salamander weights did *not* differ significantly between Pool (9.29 +/- 1.56) and Cascades (7.52 +/- 0.43) nor did it differ significantly between the Cascades and the Side Channel (5.68 +/- 0.65).  However, there *is* a significant difference between Salamander weights when comparing individuals found in the Side Channel to those found in Pool channel classifications (one-way ANOVA with post-hoc Tukey's HSD, F(2) = 4.2156, SC-P *p adj* < 0.05). However, after running the difference against a Cohen's d test and receiving a value of approximately 0.352 it can be concluded that the difference in mean Salamander weight between Pool and Side Channel classifications is small.
 
 
-```{r echo=FALSE, include=TRUE, warning=FALSE, fig.cap="***Figure 3.** Graph visualizes the skewed distribution in salamander weights in the different channels"}
+```{r echo=FALSE, include=TRUE, warning=FALSE, out.width = "100%", fig.cap="***Figure 9.** The above QQ-Plot visualizes the skewed distribution of Pacific Giant Salamander weights in each of the different channels (P, C, and SC).*"}
 
 
 
@@ -546,13 +555,14 @@ ggplot(data = mack_date, aes(sample = weight)) +
                  alpha = 0.5,
                  show.legend = FALSE
           ) +
+  labs(title = "Distribution of Pacific Giant Salamander Weights (P, C, and SC Channels)") +
   facet_wrap(~unittype, scales = "free") +
-  scale_color_viridis(discrete = TRUE, option = "cividis")
+  scale_color_viridis(discrete = TRUE, option = "cividis") 
 
 # Based on the results of our qq plot, the data is NOT normally distributed.
 ```
 
-The weight is not normally distributed therefore, utilizing the mean in our report may have skewed our data.  Comparing Medians and running non-parametric Wilcox Test and visualizing the data through a boxplot would've been a safer statistical analysis. 
+Again, it is important to note that the mean Pacific Giant Salamander weight measurements are not normally distributed within each sample. Performing statistical analyses using the mean Salamander weight has likely produced skewed test results.  Comparing the median Salamander weights by running non-parametric Wilcox Tests and visualizing the data using boxplots would have provided more accurate outcomes. 
 
 
 
@@ -560,10 +570,15 @@ The weight is not normally distributed therefore, utilizing the mean in our repo
 
 #### **Summary**
 
-A brief summary of the major findings (pick 3 - 4) from your mini-report. A bullet-pointed list is fine, but the findings should be well-written, responsible (don’t overstate your findings), and refer to outcomes (e.g. figures, tables) in the Results section
+* When visualized, changes in Pacific Giant Salamander counts over time displayed similar trends across OG and CC forest sites in Mack Creek.
 
+* A Chi-Square test for independence revealed that there is *not* a significant association between forest condition and the number of salamanders counted within specific channel classifications.
+  
+* Measurements of Pacific Giant Salamander weights in OG and CC forests, as well as measurements of Salamander weights in P, C, and SC sites, *did not display normal distributions*.
 
-Put bullet point list here...
+* Analyses show that there is *no* significant difference in mean weight of Pacific Giant Salamanders between OG and CC sites, nor is there a significant difference in Salamander mean weight across P and C, and C and SC sites. There is a small difference in mean Salamander weight between P and SC sites. 
+  
+* Mean Pacific Giant Salamander weight measurements are *not* normally distributed within each sample. Performing statistical analyses using median Salamander weights would produce more accurate results.
 
 <br>
 
