@@ -51,15 +51,10 @@ include_graphics("sal_map.png")
 
 <br>
 
-Pacific Giant Salamander population size and demographics have been examined in Mack Creek, Oregon since 1993, as part of a larger [aquatic vertebrate population study](https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-and&identifier=4027&revision=12). Mack Creek is an area within H.J. Andrews Experimental Forest. [1] Areas of focus (reaches) include a section of clear cut forest (CC) and a 500 year-old conifer old growth forest (OG), located upstream of the CC forest. [1] Each reach is approximately 150 m in length, and blocked every 50 m by nets. [1] Samples are taken every 50 m along each reach using 2-pass electrofishing. Length and weight data is recorded for all captured aquatic vertebrates. [1] The total number of Pacific Giant Salamanders counted at Mack Creek was visualized, comparing abundance in CC forest to that in OG forest. The total number of Pacific Giant Salamanders counted at Mack Creek was visualized, comparing abundance in CC forest to that in OG forest. Included is a table displaying Pacific Giant Salamander counts by channel classification for both OG and CC forests in the year 2017. Based on these values, a Chi-Square test for independence was used to determine if forest condition has a significant effect on the location within the channel at which Pacific Giant Salamanders are found. Additionally, to determine if there is a significant difference in mean weights between the two forest sections, mean Pacific Giant Salamander weights were compared across forest sections using a Welch’s two-sample t-test ( = 0.05). Box-and-whisker plots and quantile-quantile plots were then used to visualize mean weight distributions across each forest section, and revealed an abnormal distribution. This report presents analysis and figures exclusively prepared using .R software version 3.6.1. 
+Pacific Giant Salamander population size and demographics have been examined in Mack Creek, Oregon since 1993, as part of a larger [aquatic vertebrate population study](https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-and&identifier=4027&revision=12). [1] Areas of focus (reaches) include a section of clear cut forest (CC) and a 500 year-old conifer old growth forest (OG), located upstream of the CC forest. [1] Each reach is approximately 150 m in length, and blocked every 50 m by nets. [1] Samples are taken every 50 m along each reach using 2-pass electrofishing; length and weight data is recorded for all captured aquatic vertebrates. [1] The total number of Pacific Giant Salamanders counted at Mack Creek was visualized to compare abundance in CC forest to that in OG forest. Included is a table displaying Pacific Giant Salamander counts and proportions by channel classification for both OG and CC forests in the year 2017. Based on these values, a Chi-Square test for independence was used to determine if forest condition has a significant effect on the location within the channel at which Pacific Giant Salamanders are found. Additionally, to determine if there is a significant difference in mean weights between the two forest sections, mean Pacific Giant Salamander weights were compared across forest sections using a Welch’s two-sample t-test (alpha = 0.05). Beeswarm plots and quantile-quantile plots were then used to visualize mean weight distributions across each forest section, revealing an abnormal distribution of means. Knowing this, it would have been more accurate to visualize this data using Box-and-whisker plots, and to perform non-parametric statistical analyses to examine sample medians. This report presents analysis and figures exclusively prepared using .R software version 3.6.1. 
 
 <br>
 
-Write data and methods here...
-
-DATA AND METHODS: A brief ‘Data and Methods’ section (5 - 6 sentences) summarizing the data and how it was analyzed. Briefly describe the variables being studied in this report. Include the types of statistical tests performed, significance level used, and software (with version) for analysis. Include a map of the area. You can use an already published map of the area, making sure to give appropriate credit to the author / creator) in the map figure caption. 
-
-<br>
 
 ```{r, echo=FALSE, warning=FALSE, out.width = "100%", fig.cap="***Figure 2.*** Mack Creek is located in the H.J. Andrews Experimental Forest, a Long-Term Ecological Research Site. Credit [GoogleMaps](https://www.google.com/maps/place/Mack+Creek/@44.2331797,-122.1849309,15z/data=!4m5!3m4!1s0x54bf5f54d8de4e19:0xae27a36b0c69a1b8!8m2!3d44.2111833!4d-122.1527863)."}
 #Insert salamander and map image with caption
@@ -153,9 +148,10 @@ mack_date <- mack_clean %>%
 # - If the difference in means is very unlikely to occur by random chance if samples are drawn from identical populations, then we may decide that they ARE significantly different 
 
 ```
+**A.** Annual counts of Pacific Giant Salamander were visually compared in OG and CC sections of Mack Creek (1993-2016). Visualizations display the changes in annual counts for each section of Mack Creek over time. From 1993 to approximately 2014, Pacific Giant Salamander counts in OG forest sections of Mack Creek generally exceed counts obtained in CC forest sections. From 2014 to 2016, this trend is reversed. General population growth and decay patterns are similar between both sites displaying an overall increase in population from 1995 to approximately 2002, followed by an overall decline until 2006, a more drastic decline around 2014, and growth from 2014 to 2016. 
 
 
-```{r echo=FALSE, include=TRUE, warning=FALSE, fig.cap="***Figure 1.** Graph visualizes the comparison of annual Salamander counts in Old Growth and Clear Cut sections of Mack Creek.*"}
+```{r echo=FALSE, include=TRUE, warning=FALSE, out.width = "100%", fig.cap="***Figure 3.** Comparison of annual Pacific Giant Salamander counts in Old Growth and Clear Cut sections of Mack Creek (1993-2016). *"}
 # Results A: Visually compare annual salamander counts in old growth (OG) and clear cut (CC) sections of Mack Creek. For all years when Pacific giant salamander observations were recorded in the study, find the total annual Pacific giant salamander counts for the two sections of Mack Creek. Create a finalized graph to show the changes in annual counts for each section over time, add a figure caption, and briefly describe the trends in text. 
 
 sal_abundance <- mack_date %>%
@@ -184,6 +180,8 @@ sal_total_plot <- ggplot(sal_total, aes(x=year, y=total)) +
 sal_total_plot
 ```
 
+<br>
+**B.** Table of 2017 salamander counts by channel classification (pool, cascades and side-channel) in old growth (OG) and clear cut (CC) sections of Mack Creek.
 
 ```{r echo=FALSE, include=FALSE, warning=FALSE}
 # Results B: Table of 2017 salamander counts by channel classification (pool, cascades and side-channel) in old growth (OG) and clear cut (CC) sections of Mack Creek. Using only Pacific giant salamander observations from 2017, create a finalized table showing the counts and proportions of salamanders observed in different channel classifications (pool, cascade, or side-channel) within Mack Creek for the two sections (OG and CC). Add a table caption above the table. Note: We’re only interested in Pacific giant salamanders observed in the creek, so you should exclude salamanders observed in isolated pools (IP) disconnected from the channel. 
@@ -201,6 +199,7 @@ kable(sal_summary, col.names = c("Channel Classification",
                            "Section",
                            "Total Count")) %>% 
   kable_styling(bootstrap_options = c("striped", "hover"))
+
 
 ```
 
@@ -234,26 +233,28 @@ sal_count_table
 ```
 
 
-```{r echo=FALSE, include=TRUE, warning=FALSE, fig.cap="***Figure 3.** Table shows the number and proportion of counts per channel in relation to old growth and clear cut sections*"}
+```{r echo=FALSE, include=TRUE, warning=FALSE}
 sal_adorn <- sal_count_table %>% 
   janitor::adorn_percentages(denominator = "row") %>% 
   adorn_pct_formatting(digits = 0) %>% 
   adorn_ns(position = "front")
 
-kable(sal_adorn) %>% 
+kable(sal_adorn, caption = "***Figure 4.** The table below displays Pacific Giant Salamander counts and proportions by channel classification [pool (P), cascades (C), or side-channel (SC)] Table of 2017 salamander counts by channel classification () in old growth (OG) and clear cut (CC) sections of Mack Creek. Using only Pacific giant salamander observations from 2017, create a finalized table showing the counts and proportions of salamanders observed in different channel classifications (pool, cascade, or side-channel) within Mack Creek for the two sections (OG and CC).*") %>% 
   kable_styling()
+
 ```
-### 8. Chi-Square test for independence
-
-Chi-square is a test for associations between two or more nominal (categorical variables), usually comparing counts within groups across levels. 
-
-What we're really asking: are the proportions within different levels in a group so different *across* multiple groups that we actually think there's an effect of *group*? 
-
-**Null hypothesis**: There is no significant association between old growth and clear cut sections (or, old growth and clear cut are independent)
-
-**Alternative hypothesis**: There IS a significant association between old growth and clear cut (or, old growth and clear cut are NOT independent)
 
 ```{r, include=FALSE}
+#8. Chi-Square test for independence
+
+#Chi-square is a test for associations between two or more nominal (categorical variables), usually comparing counts within groups across levels. 
+
+#What we're really asking: are the proportions within different levels in a group so different *across* multiple groups that we actually think there's an effect of *group*? 
+
+#**Null hypothesis**: There is no significant association between old growth and clear cut sections (or, old growth and clear cut are independent)
+
+#**Alternative hypothesis**: There IS a significant association between old growth and clear cut (or, old growth and clear cut are NOT independent)
+
 # First, get just a contingency table of counts we just want the six count values in a df, nothing else: 
 
 chi_counts <- sal_count_table %>% 
@@ -274,19 +275,21 @@ my_channel_chi
 summary(my_channel_chi)
 
 ```
+<br>
 
-There is a *not* a significant assocation between old growth and clear cut sections ($\chi$^2^(`r my_channel_chi$parameter`)) = `r my_channel_chi$statistic` and ($p-value$(`r my_channel_chi$parameter`)) = `r my_channel_chi$p.value` Therefore, the **Null hypothesis** stating 'There is no significant association between old growth and clear cut sections (or, old growth and clear cut are independent)' remains true.
-
-### Welch two sample ttest for comparing difference in means of clear cut and old growth sections.
-
-
-**Null hypothesis**: There is no significant difference in weight mean between old growth and clear cut sections (or, old growth and clear cut weight means not significantly different)
-
-**Alternative hypothesis**: There IS a significant difference in weight mean between old growth and clear cut (or, old growth and clear cut are significantly differenct)
+**C.** 2017 Pacific Giant Salamander counts from the table above were used to determine if there is a significant effect of forest condition on where salamanders are found within the channel based on the channel classifications P, C, and SC. A Chi-Square test for independence revealed that there is *not* a significant association between forest condition and the number of salamanders counted within specific channel classifications ($\chi$^2^(`r my_channel_chi$parameter`)) = `r my_channel_chi$statistic` and ($p-value$(`r my_channel_chi$parameter`)) = `r my_channel_chi$p.value`.
 
 
 ```{r, include=FALSE, warning=FALSE}
 # Results D. Compare weights of Pacific giant salamanders in clear cut and old growth forest sections of the creek in 2017. Only considering creek section (OG or CC) as a variable (not further factoring by channel classification), answer: Is there a significant difference in mean weights for Pacific giant salamanders observed in the two forest sections (clear cut and old growth) in 2017? 
+
+#Welch two sample ttest for comparing difference in means of clear cut and old growth sections.
+
+
+#**Null hypothesis**: There is no significant difference in weight mean between old growth and clear cut sections (or, old growth and clear cut weight means not significantly different)
+
+#**Alternative hypothesis**: There IS a significant difference in weight mean between old growth and clear cut (or, old growth and clear cut are significantly differenct)
+
 
 sal_stats <- mack_date %>% 
   filter(year == 2017) %>%
